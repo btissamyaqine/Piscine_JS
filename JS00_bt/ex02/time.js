@@ -3,7 +3,6 @@ let day = 13;
 
 const timeWarp = (newMonth, newDay) => {
   day = newDay;
-  // month = newMonth;
   console.log(newMonth, day);
 }
 
