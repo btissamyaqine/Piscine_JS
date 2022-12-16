@@ -1,22 +1,16 @@
-export default function helloSomeone(str){
-  switch (str) {
-    case "42":
-      return("Hello " +str+"!")
-    case "":
-      return("Who are you?")
-    case null:
-      return("I am " +str+ " and void!")
-    case 42:
-      return("My age is "+ str)
-    case -1:
-      return("I am Benjamin Button!")
-    case NaN:
-      return("Age is just a number!");
-    case undefined:
-      return("Nobody can define me!")
-    default:
-      return("Age is just a number")
-      
-  }
-  
+export default function helloSomeone(x){
+  if((typeof(x) ==='string') && (x !== ""))
+    console.log('Hello '+x);
+  else if(x === "")
+    console.log("Who are you?");
+  else if (x <= 0)
+      console.log("I am Benjamin Button!");
+  else if(x === null)
+    console.log("I am null nad void");
+  else if (isNaN(x))
+    console.log("Age is just a number");
+  else if (typeof(x) === 'undefined')
+    console.log("Nobody can define me!");
+  else if(typeof(x) ==='number')
+    console.log("My age is "+x);
 }
