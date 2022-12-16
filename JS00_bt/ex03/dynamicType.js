@@ -4,15 +4,14 @@ const dynamicType = {
     this.nbr = nbr
     return nbr;
   },
-  change : function(str) {
-    // how pass n value fron=m put to this function ? 
-    let n = this.put;
+  change : function(argType) {
+    let n = this.put; // how pass n value from put to this function ? 
     
-    if (str == "String") {
+    if (argType == "String") {
       var num = n.toString()
       return num;
     } 
-    else if (str == "Array") {
+    else if (argType == "Array") {
       return Array.from(String(this.nbr));
     }
     else {
@@ -28,3 +27,13 @@ dynamicType.put(42);
 // dynamicType.change("Array");
 dynamicType.change("String");
 dynamicType.printType();
+
+
+// const dynamicType = {
+//   value: 0,
+//   put: (value) => {
+//     dynamicType.value = value
+//   }
+// }
+
+// console.log(dynamicType.value)
