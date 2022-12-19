@@ -5,14 +5,14 @@ const exid = {
   up() {
     const limit = 42;
     while (this.nbr < limit) {
-      this.nbr += 1
+      this.nbr++
     }
     this.nbr = this.nbr
   },
   down() {
     const limit = 42;
     while (this.nbr > limit) {
-      this.nbr -= 1
+      this.nbr--
     }
     this.nbr = this.nbr
   },
@@ -22,13 +22,13 @@ const exid = {
 };
 
 exid.up(30);
-// exid.down();
-// exid.up();
-// exid.up();
-// exid.down();
-// exid.up();
-// exid.down();
-// exid.up();
-// exid.up();
-// exid.down();
+exid.down();
+exid.up();
+exid.up();
+exid.down();
+exid.up();
+exid.down();
+exid.up();
+exid.up();
+exid.down();
 exid.showCount();

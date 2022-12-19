@@ -3,11 +3,10 @@ const dynamicType = {
     this.nbr = nbr;
   },
   change: function (argType) {
-    if (argType === "String") 
-      this.nbr = `${this.nbr}`;
-    else if (argType === "Array") 
-      this.nbr = [`${this.nbr}`];
-
+    if (argType === "String")
+      this.nbr = this.nbr.toString();
+    else if (argType === "Array")
+      this.nbr = [this.nbr];
   },
   printType: function () {
     console.log(this.nbr);
