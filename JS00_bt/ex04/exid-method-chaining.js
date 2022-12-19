@@ -1,24 +1,27 @@
 const exidMethodChaining = {
-  count: function(nbr){
-    return nbr;
+  count: function (nbr) {
+    this.nbr = nbr;
+    return this
   },
-  up(nbr){
-    var limit = 42;
-     nbr = this.count
-    while(nbr < limit){
-      nbr+= 1;
-    }
-  },
-  down(nbr){
-    let limit = 42
-    nbr = this.up
-    while(nbr > limit){
-      nbr-= 1
-    }
-  },
-  showCount(){
-     console.log(this.count)
-  },
-};
 
+  up() {
+    const limit = 42;
+    while (this.nbr < limit) {
+      this.nbr++;
+    }
+    return this
+  },
+  down() {
+    const limit = 42;
+    while (this.nbr > limit) {
+      this.nbr--;
+    }
+    return this
+  },
+  showCount() {
+    console.log(this.nbr)
+    return this
+  },
+
+};
 exidMethodChaining.up().down().up().up().down().up().down().up().up().down().showCount()

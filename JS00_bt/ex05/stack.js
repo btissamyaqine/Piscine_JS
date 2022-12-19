@@ -1,6 +1,6 @@
 const stackCreate = () => ({
   arr: [],
-  // check the arr is empty 
+  // check the arr if is it empty 
   stackEmpty(stack){
     if(!Array.isArray(stack)){
       console.log(0);
