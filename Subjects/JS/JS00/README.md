@@ -2,7 +2,7 @@
 
 # JS 00
 
-![](images/js_is_not_java.jpg)
+![](assets/js_is_not_java.jpg)
 
 ## basic rules
 
