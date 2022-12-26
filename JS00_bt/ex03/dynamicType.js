@@ -7,7 +7,6 @@ const dynamicType = {
       this.nbr = `${this.nbr}`;
     else if (argType === "Array") 
       this.nbr = [`${this.nbr}`];
-
   },
   printType: function () {
     console.log(this.nbr);
