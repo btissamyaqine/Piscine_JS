@@ -6,6 +6,7 @@ const setTimer = (callback, mill_second) => {
   }
   return callback();
 }
+export default setTimer; 
 // export default
 // setTimer(function(){
 // console.log("Timeout success");
