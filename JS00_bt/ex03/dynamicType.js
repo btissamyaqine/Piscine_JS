@@ -8,17 +8,19 @@ const dynamicType = {
       this.nbr = this.nbr.toString();
     else if (argType === "Array")
       this.nbr = [this.nbr];
-    else if (argType === "Object");
+    else if (argType === "Object")
     // ({}) equal to object.prototype
      this.nbr = ({}).valueOf.call(this.nbr);
-    // this.nbr = Object.prototype.valueOf.call(this.nbr);
+    else (argType === "Number")
+      this.nbr = Number(this.nbr)
+     
   },
   printType: function () {
     console.log(this.nbr);
   }
 };
 dynamicType.put(42);
-dynamicType.change("Array");
+dynamicType.change("Number");
 dynamicType.printType();
 // dynamicType.change("Array");
 // dynamicType.printType();
