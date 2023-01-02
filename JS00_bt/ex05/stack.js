@@ -16,7 +16,7 @@ const stackEmpty = (stack) => {
 }
 // return the data at the top of an array
  const stackPush = (stack, data) => {
-  stack = [1,2];
+  stack = [1,2]; ///???
   data = 6;
     if(!Array.isArray(stack) || stack.length === 0 ){
       console.log("error check your stack if is it empty or not a table");
