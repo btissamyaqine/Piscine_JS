@@ -20,7 +20,7 @@ const dynamicType = {
   }
 };
 dynamicType.put(42);
-dynamicType.change("Number");
+dynamicType.change("Object");
 dynamicType.printType();
 // dynamicType.change("Array");
 // dynamicType.printType();
