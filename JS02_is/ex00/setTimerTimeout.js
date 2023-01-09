@@ -1,6 +1,6 @@
 
 interval = () => {
-  return (2);
+  return (5);
 }
 
 callback = (count) => {
