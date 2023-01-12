@@ -54,3 +54,10 @@ setTimer = (setTimeout , setInterval ) => {
 }
 
 setTimer()
+
+
+
+
+
+
+
