@@ -35,7 +35,7 @@
 
 
 setInterval  = () => {
-  return (2);
+  return (5);
 }
 
 setTimeout  = (count) => {
