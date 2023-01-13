@@ -1,33 +1,12 @@
-// export function setTimer(callback, interval) {
-//   var d = new Date();
-//   var i = d.getTime();
-//   var global_time = i + interval;
-//   while(Date.now() <= global_time) {
-//   }
-//   return callback();
-// }
-// setTimer(function(){
-// console.log("Timeout success");
-// },5000);
 
-// function salam(name) {
-//   console.log("salam " + name)
-// }
-
-// function test(callback) {
-
-//   var name= "btissam";
-//   callback(name);
-// }
-
-const interval = (milisecs) => {
-  var nowT = Date.now();
-  while(Date.now()< nowT+milisecs){
+function interval(milisecs) {
+  var nowT = new Date().getTime();
+  if(new Date().getTime() <= nowT + milisecs){
   }
-  return setTimeout()
 }
 
 function setTimeout(count) {
+
   if(!count){
     var count = 0;
     while(count <=2){
@@ -40,7 +19,10 @@ function setTimeout(count) {
 
 function setTimer(setTimeout,interval) {
   
-   interval(setTimeout())
+  //  interval(setTimeout());
+    setTimeout(interval())
+  //  setTimeout()
 }
 
 setTimer(setTimeout, interval);
+// setTimer(setTimeout, 1000)
