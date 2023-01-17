@@ -8,7 +8,7 @@ let make_dough = new Promise(function(resolve, reject) {
   randomFail()
 });
 
-// reject runs the second function in .then
+// resolve ect runs the second function in .then
 make_dough.then(
   result => console.log(result), 
   error => console.log(error) 
