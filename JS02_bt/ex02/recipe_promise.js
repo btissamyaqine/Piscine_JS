@@ -4,7 +4,7 @@ function randomFail() {
   }
 }
 let make_dough = new Promise(function(resolve, reject) {
-    setTimeout(() => resolve(("make dought is done!")), 3000);
+  setTimeout(() => resolve(("make dought is done!")), 3000);
   randomFail()
 });
 
