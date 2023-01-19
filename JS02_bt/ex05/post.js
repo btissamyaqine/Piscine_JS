@@ -1,23 +1,32 @@
 
 import fetch from 'cross-fetch';
-const api_url = 'https://jsonplaceholder.typicode.com/comments';
-async function fetch_post(url) {
-  const response = await fetch(url)
 
-  var data = await response.json()
-  console.log(data)
-}
-fetch_post(api_url)
+var post;
 
+// Call the API
+fetch('https://jsonplaceholder.typicode.com/posts/1').then(function (response) {
+	if (response.ok) {
+		return response.json();
+	} else {
+		return Promise.reject(response);
+	}
+}).then(function (data) {
 
+	// Store the post data to a variable
+	post = data;
 
+	// Fetch another API
+	return fetch('https://jsonplaceholder.typicode.com/comments/' + data.userId);
 
-// function getPosts(event) {
-//     fetch(`https://jsonplaceholder.typicode.com/posts?userId${event.target.id}`)
-//         .then(response => response.json())
-//         .then(response => {
-//          console.log(response)
-//       //loop through response and  render  data 
-//     })
-        
-// }
+}).then(function (response) {
+	if (response.ok) {
+		return response.json();
+	} else {
+		return Promise.reject(response);
+	}
+}).then(function (userData) {
+	console.log(post, userData);
+}).catch(function (error) {
+	console.warn(error);
+});
+
