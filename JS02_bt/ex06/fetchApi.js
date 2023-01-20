@@ -13,7 +13,10 @@ Promise.all([
    data;
 	// Log the data to the console
 	// You would do something with both sets of data here
-	console.log(data);
+	console.log(data)
+  // i try to have just names but show indefined
+	// console.log(data.name);
+
 }).catch(function (error) {
 	// if there's an error, log it
 	console.log(error);
