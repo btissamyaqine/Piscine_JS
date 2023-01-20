@@ -24,8 +24,15 @@ fetch('https://jsonplaceholder.typicode.com/posts/1').then(function (response) {
 	} else {
 		return Promise.reject(response);
 	}
-}).then(function (userData) {
-	console.log(post, userData);
+}).then(function (commentData) {
+	console.log("Title: " + post.title);
+	console.log("Body " + post.body);
+  console.log("--------------")
+  console.log("Commented by: " + commentData.name)
+  console.log("Email: " + commentData.email)
+  console.log("Body Comment: " + commentData.body)
+  console.log("--------------")
+
 }).catch(function (error) {
 	console.warn(error);
 });
