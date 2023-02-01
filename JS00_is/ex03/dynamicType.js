@@ -12,6 +12,7 @@ const dynamicType = {
     console.log(this.nbr);
   }
 };
+
 dynamicType.put(42);
 dynamicType.change("String");
 dynamicType.printType();
