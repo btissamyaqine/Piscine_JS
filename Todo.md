@@ -6,8 +6,8 @@ Javascript Crash Course From Scratch
     - [x] ex00
     - [x] ex01
     - [x] ex02
-    - [ ] ex03
-    - [ ] ex04
+    - [x] ex03
+    - [x] ex04
     - [ ] ex05
   - [ ] JS01
     - [ ] ex01

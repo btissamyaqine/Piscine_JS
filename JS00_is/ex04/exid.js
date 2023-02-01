@@ -1,27 +1,17 @@
 const exid = {
-  count: function (nbr) {
-    this.nbr = nbr;
+  count: 0,
+  up(){
+    this.count = this.count + 1;
   },
-  up() {
-    const limit = 42;
-    while (this.nbr < limit) {
-      this.nbr++
-    }
-    this.nbr = this.nbr
+  down(){
+    this.count = this.count - 1;
   },
-  down() {
-    const limit = 42;
-    while (this.nbr > limit) {
-      this.nbr--
-    }
-    this.nbr = this.nbr
-  },
-  showCount() {
-    console.log(this.nbr)
+  showCount(){
+    console.log(this.count); 
   },
 };
 
-exid.up(30);
+exid.up();
 exid.down();
 exid.up();
 exid.up();
