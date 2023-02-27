@@ -1,31 +1,23 @@
-import React from 'react'
-import "./ToDoListTemplate.css"
-function ToDoListTemplate({text, todo, setTodo, todos, editForm, setEditForm, setId, setinputtxt, inputtxt}) {
-const handleDelete = () => {
-  setTodo(todo.filter((el) => el.id !== todos.id));
-  console.log(todos)
-}
-const handleEdit = (todos, index) => {
-  setEditForm(true);
-  setId(index);
-  setinputtxt(todos.inputtxt)
+import './ToDoListTemplate.css';
 
-}
+function ToDoListTemplate() {
   return (
-    <>
-      {/* {editForm===false && 
-        ( */}
-          <div className='body'>
-            <li>{text}</li>
-            <button onClick={handleDelete}>delete</button>
-            <button onClick={handleEdit}>update</button>
-          </div>
-        {/* )
-      } */}
-    </>
-    
-        
-  )
+    <div className="App">
+      <h1>ToDoList</h1>
+      <div className="enter">
+        <h5>Part to entrer </h5>
+        <input type="text" />
+      </div>
+      <div className="list">
+      <h5>ToDo List Part</h5>
+      <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Jus</li>
+      </ul>
+      </div>
+    </div>
+  );
 }
 
 export default ToDoListTemplate;

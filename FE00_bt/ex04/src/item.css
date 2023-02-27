@@ -1,0 +1,18 @@
+.todo {
+  display: flex;
+  justify-content: space-between;
+}
+ul li {
+  list-style: none;
+  font-size: 18px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.todo_btn {
+  margin-left: 20px;
+  border-style: none;
+  background-color: white;
+  color: red;
+}
+.todo:hover{
+  background-color: rgb(202, 204, 206);
+}
