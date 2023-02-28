@@ -4,13 +4,14 @@ import './input.css'
 
 const input = ({ setInputText, inputText, todos, setTodos }) => {
   const inputTextHandler = (e) => {
+    console.log(e.target.value)
     setInputText(e.target.value);
 };
 const submitTodoHandler = (e) => {
     e.preventDefault();
     setTodos([
         ...todos, 
-        {text: inputText, id: Math.random() * 1000 }
+        {text: inputText, completed: false, id: Math.random() * 1000 }
     ]);
     setInputText("");
 };
