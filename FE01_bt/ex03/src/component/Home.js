@@ -17,7 +17,6 @@ function Home() {
     >
     <Container>
       <Row>
-      
         <Col>
         <br></br>
           <h3>Hi!</h3>
