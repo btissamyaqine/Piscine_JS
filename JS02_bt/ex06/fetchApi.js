@@ -8,7 +8,9 @@
 import fetch from 'cross-fetch';
 
 const findName = async() => {
-	const urls = ['https://jsonplaceholder.typicode.com/comments?postId=9', 'https://jsonplaceholder.typicode.com/comments?postId=1'];
+	const urls = ['https://ops.demanddriventech.com/api/v1/deploy/findResources?siteId=Demo143',
+								'https://ops.demanddriventech.com/api/v1/deploy/findResources?siteId=Demo143'
+							];
 		try{
 			let res = await Promise.all(urls.map(e => fetch(e)))
 			let resJson = await Promise.all(res.map(e => e.json()))
