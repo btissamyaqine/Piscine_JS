@@ -1,3 +1,36 @@
+curl 'https://api.notion.com/v1/users' \
+  -H 'Authorization: Bearer '"secret_9L7KMT87vXvnCpJONOGxg9v82qGsSjEahnhK8nvgjl7"'' \
+  -H "Notion-Version: 2022-06-28"
+
+# Infos
+- API_Key: Authorization: Bearer secret_9L7KMT87vXvnCpJONOGxg9v82qGsSjEahnhK8nvgjl7
+- Database ID: b46da485607849a08a3031f373493f3f
+
+# Retrieve a database
+curl 'https://api.notion.com/v1/databases/b46da485607849a08a3031f373493f3f' \
+  -H 'Authorization: Bearer '"secret_9L7KMT87vXvnCpJONOGxg9v82qGsSjEahnhK8nvgjl7"'' \
+  -H 'Notion-Version: 2022-06-28'
+
+
+https://www.notion.so/issamelferkh/b46da485607849a08a3031f373493f3f?v=d1637457bf924d0fb4bce4199d89c889&pvs=4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
