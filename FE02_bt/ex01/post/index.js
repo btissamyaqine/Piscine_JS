@@ -1,7 +1,7 @@
 const Client = require('@notionhq/client').Client;
 const dotenv = require('dotenv');
-// const fs = require('fs');
-// const path = require('path');
+const fs = require('fs');
+const path = require('path');
 
 
 dotenv.config()
@@ -39,22 +39,23 @@ async function getDatabaseData(client, databaseId) {
   }
 }
 getDatabaseData(NOTION_CLIENT, DATABASE_ID)
-// function normalizeDataItem(item) {
-//   const {  post_title, post_adress, last_edited_time, Created_time } = item.properties
+function normalizeDataItem(item) {
+  const {  post_title, post_name, post_adress, last_edited_time, Created_time } = item.properties
 
-//   return {
-//     // url: url?.url,
-//     post_title: post_title?.title ?? '',
-//     post_adress: post_adress?.email ?? '',
-//     last_edited_time: last_edited_time?.last_edited_time ?? '',
-//     Created_time: Created_time?.created_time ?? '',
-//   }
-// }
-// async function main() {
-//   const data = await getDatabaseData(NOTION_CLIENT, DATABASE_ID)
-//   const normalizedData = data?.map((item) => normalizeDataItem(item))
+  return {
+    // url: url?.url,
+    post_title: post_title?.title ?? '',
+    post_name: post_name?.title ?? '',
+    post_adress: post_adress?.email ?? '',
+    last_edited_time: last_edited_time?.last_edited_time ?? '',
+    Created_time: Created_time?.created_time ?? '',
+  }
+}
+async function main() {
+  const data = await getDatabaseData(NOTION_CLIENT, DATABASE_ID)
+  const normalizedData = data?.map((item) => normalizeDataItem(item))
 
-//   const outputFilePath = path.join(__dirname, 'data.json')
-//   fs.writeFileSync(outputFilePath, JSON.stringify(normalizedData, null, 2))
-// }
-// main()
+  const outputFilePath = path.join(__dirname, 'data.json')
+  fs.writeFileSync(outputFilePath, JSON.stringify(normalizedData, null, 2))
+}
+main()
