@@ -4,7 +4,7 @@ import { createUseStyles } from 'react-jss';
 const Client = require('@notionhq/client').Client;
 
 
-export default function App({ setInputText, inputText, post, setPost}) {
+export default function App() {
   const useStyle = createUseStyles({
     page: {
       display: 'grid',
@@ -65,11 +65,7 @@ export default function App({ setInputText, inputText, post, setPost}) {
   })
   const classes = useStyle()
 
-  // const apiKey = new Client({ auth: process.env.NOTION_KEY });
-  // const databaseId = process.env.NOTION_DATABASE_ID;
-
   const [data, setData] = useState(null);
-  // const [inputText, setInputText] = useState('')
 
   useEffect(() => {
     async function fetchData() {
@@ -89,18 +85,7 @@ export default function App({ setInputText, inputText, post, setPost}) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
-  const inputTextHandler = (e) => {
-    console.log(e.target.value)
-    setInputText(e.target.value);
-};
-  const handlerPostSubmit = (e) => {
-    e.preventDefault();
-    setPost([
-        ...post, 
-        {text: inputText, completed: false, id: Math.random() * 1000 }
-    ]);
-    setInputText("");
-  }
+  
 
 
   if (!data) {
@@ -109,9 +94,8 @@ export default function App({ setInputText, inputText, post, setPost}) {
   return (
     
     <div className={classes.page} >
-      <form onSubmit={handlerPostSubmit}>
         <div className={classes.head}>
-          <input onChange={inputTextHandler} className={classes.input} type="text" placeholder='add your post'/>
+          <input className={classes.input} type="text" placeholder='add your post'/>
         </div>
         <div className={classes.body}>
           {data.map(item => (
@@ -127,7 +111,6 @@ export default function App({ setInputText, inputText, post, setPost}) {
           </div>
           ))}
         </div>
-      </form>
       
     </div>
   );
