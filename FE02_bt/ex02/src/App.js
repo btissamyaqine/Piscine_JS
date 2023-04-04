@@ -1,118 +1,79 @@
-import React, {useState, useEffect} from 'react';
-import { createUseStyles } from 'react-jss';
+const { Client } = require('@notionhq/client');
+// const NOTION_KEY = 'secret_yhprlTWcor8hjo5GwADQe5W6OxQlaCWpuFmRgeDW8RU'
+const notion = new Client({ auth: process.env.NOTION_KEY });
 
-const Client = require('@notionhq/client').Client;
-
-
-export default function App() {
-  const useStyle = createUseStyles({
-    page: {
-      display: 'grid',
-      // margin: 500
-      justifyContent: 'center',
-      alignItems: 'center'
+(async () => {
+  const response = await notion.pages.create({
+    "cover": {
+        "type": "external",
+        "external": {
+            "url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Tuscankale.jpg"
+        }
     },
-    body: {
-      display: 'flex',
-      // margin: 500
-      justifyContent: 'center'
+    "icon": {
+        "type": "emoji",
+        "emoji": "🥬"
     },
-    head: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      margin: '20px'
-
+    "parent": {
+        "type": "database_id",
+        "database_id": "d9824bdc-8445-4327-be8b-5b47500af6ce"
     },
-    created_date: {
-      fontSize: '12px',
-      color: 'gray'
-    }, 
-    last_edited_date: {
-      fontSize: '12px',
-      color: 'gray'
-    },
-    cards : {
-      // margin: 50,
-      display: 'block',
-      justifyContent: 'center',
-      // maxHeight: '500px',
-      // backgroundColor: 'red',
-      boxShadow: '1px 2px 9px #F4AAB9',
-      margin: '4em',
-      padding: '1em',
-      // width: 300
-    },
-    span: {
-      display: 'grid'
-    },
-    input: {
-      display: 'grid',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: '500px',
-      height: '40px'
-      
-      
-    },
-    "@media (max-width: 768px)":{
-      cards: {
-        width: '100%',
-        display: 'grid'
-      }
-      
-    }
-  })
-  const classes = useStyle()
-
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    async function fetchData() {
-      const url = `http://localhost:3001/https://api.notion.com/v1/databases/18d48a8b2bf643118405e0b0d98ca16e/query`;
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Notion-Version': '2021-08-16',
-          'Authorization': `Bearer secret_yhprlTWcor8hjo5GwADQe5W6OxQlaCWpuFmRgeDW8RU`,
+    "properties": {
+        "Name": {
+            "title": [
+                {
+                    "text": {
+                        "content": "Tuscan kale"
+                    }
+                }
+            ]
         },
-      });
-      const data = await response.json();
-      setData(data.results);
-    }
-    fetchData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  
-  
-
-
-  if (!data) {
-    return <div>Loading...</div>;
-  }
-  return (
-    
-    <div className={classes.page} >
-        <div className={classes.head}>
-          <input className={classes.input} type="text" placeholder='add your post'/>
-        </div>
-        <div className={classes.body}>
-          {data.map(item => (
-          <div  key={item.id} className={classes.cards}>
-            <h1>{item.properties.post_name.rich_text[0].plain_text}</h1>
-            <h4>Created By: {item.properties.post_adress.email}</h4>
-            
-            <div className={classes.span}>
-              <span className={classes.created_date}>Created at :{item.properties.Created_time.created_time}</span>
-              <span className={classes.last_edited_date}>Last edit: {item.properties.last_edited_time.last_edited_time}</span> 
-            </div>
-            
-          </div>
-          ))}
-        </div>
-      
-    </div>
-  );
-}
-
+        "Description": {
+            "rich_text": [
+                {
+                    "text": {
+                        "content": "A dark green leafy vegetable"
+                    }
+                }
+            ]
+        },
+        "Food group": {
+            "select": {
+                "name": "🥬 Vegetable"
+            }
+        }
+    },
+    "children": [
+        {
+            "object": "block",
+            "heading_2": {
+                "rich_text": [
+                    {
+                        "text": {
+                            "content": "Lacinato kale"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "object": "block",
+            "paragraph": {
+                "rich_text": [
+                    {
+                        "text": {
+                            "content": "Lacinato kale is a variety of kale with a long tradition in Italian cuisine, especially that of Tuscany. It is also known as Tuscan kale, Italian kale, dinosaur kale, kale, flat back kale, palm tree kale, or black Tuscan palm.",
+                            "link": {
+                                "url": "https://en.wikipedia.org/wiki/Lacinato_kale"
+                            }
+                        },
+                        "href": "https://en.wikipedia.org/wiki/Lacinato_kale"
+                    }
+                ],
+                "color": "default"
+            }
+        }
+    ]
+});
+  console.log(response);
+})();
