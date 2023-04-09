@@ -21,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "proxy":"https://api.notion.com/v1/pages/85e24e498ab3495fa684c187310501a9"
   },
   "eslintConfig": {
     "extends": [
