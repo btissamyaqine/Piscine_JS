@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function App() {
   const [title, setTitle] = React.useState('');
-   const [APIData, setAPIData] = React.useState([]);
+  //  const [APIData, setAPIData] = React.useState([]);
   const createPage = async (e) => {
   try {
     const response = await axios.post('http://localhost:5000/create-page', {
@@ -14,18 +14,19 @@ function App() {
   } catch (error) {
     console.error(error);
   }
-  try {
-    const response = await axios.get('http://localhost:8000/get_page')
-      .then(response => {
-        setAPIData(response.data.results);
-        console.log(response.data.results);
-      })
-  } catch (error) {
-    console.error(error);
-  }
+//   try {
+//     const response = await axios.get('http://localhost:5000/get_page')
+//       .then(response => {
+//         setAPIData(response.data.results);
+//         console.log(response.data.results);
+//       })
+//   } catch (error) {
+//     console.error(error);
+//   }
 
   };
-  // createPage(title)
+  
+  createPage()
   return (
         <div className=''>
     
@@ -37,7 +38,7 @@ function App() {
           type="text"
           id="title"
           name="title"
-          placeholder="John Doe"
+          placeholder=""
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
@@ -49,17 +50,17 @@ function App() {
       </button>
     </form>
     <div>
-    <p>API DATA</p>
+    {/* <p>API DATA</p>
           {
             APIData.map((data) => {
               return (
                 <div key={data.id}>
-                   <p>Name: {data.properties.title.title[0].text.content}</p>
+                   <p>Name: {data.properties.Name.title[0].text.content}</p>
                    
                </div>
               )
            })
-          }
+          } */}
     </div>
   </div>
   )
