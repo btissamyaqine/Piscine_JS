@@ -4,7 +4,7 @@ import axios from 'axios';
 function App() {
   const [title, setTitle] = React.useState('');
   //  const [APIData, setAPIData] = React.useState([]);
-  const createPage = async (e) => {
+  const createPage = async () => {
   try {
     const response = await axios.post('http://localhost:5000/create-page', {
       title,
