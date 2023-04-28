@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-// import SearchForm from "./SearchForm";
 import { Octokit } from "@octokit/rest";
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import IsseusPage from "./IsseusPage";
 
 function App() {
   const [repos, setRepos] = useState([]);
@@ -8,7 +9,7 @@ function App() {
   const octokit = new Octokit({auth: process.env.ACCESS_TOKEN});
 
   async function searchRepos(repoName) {
-    const response = await octokit.request('GET /search/issues',{
+    const response = await octokit.request('GET /search/repositories',{
       q: repoName,
       headers: {
         'X-GitHub-Api-Version': '2022-11-28'
@@ -53,11 +54,21 @@ function App() {
     <div>
       <h1>GitHub Repository Search</h1>
       <SearchForm Submit={handleSearch} />
-          <ul>             
-              {repos?.map((repo) => (
-                <li key={repo.id}>{repo.title}</li>
-              ))}
+          <BrowserRouter>
+          <ul>
+            {repos?.map((repo) => (
+            <li key={repo.id}>
+              <Link to={`/IsseusPage/${repo.id}`}>{repo.full_name}</Link> 
+              <button>add</button>
+            </li>
+            
+             ))}
           </ul>
+          <Routes>
+            <Route path="/IsseusPage" element={<IsseusPage />} />
+          </Routes> 
+          </BrowserRouter>            
+
     </div>
   );
 }
